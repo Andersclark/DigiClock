@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .clock {
+          font-size: 15px;
+          display: flex;
+          flex-direction: row;
+          gap: 3em;
+          background-color: black;
+          border-radius: 1em;
+          padding: 2em;
+        }
+        .digit-group {
+          display: flex;
+          flex-direction: row;
+          gap: 2em;
+        }
+        polygon {
+          transition: fill 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="digit-group">
+      <div class="digit-container">
+        <svg width="100" height="200" id="digit-1">
+          <polygon points="0,0 100,0 85,15 15,15" name="top" />
+          <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+          <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+          <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+          <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+          <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+          <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+        </svg>
+      </div>
+      <div class="digit-container">
+        <svg width="100" height="200" id="digit-2">
+          <polygon points="0,0 100,0 85,15 15,15" name="top" />
+          <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+          <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+          <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+          <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+          <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+          <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+        </svg>
+      </div>
+    </div>
+  <div class="digit-group">
+    <div class="digit-container">
+      <svg width="100" height="200" id="digit-3">
+        <polygon points="0,0 100,0 85,15 15,15" name="top" />
+        <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+        <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+        <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+        <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+        <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+        <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+      </svg>
+    </div>
+    <div class="digit-container">
+      <svg width="100" height="200" id="digit-4">
+        <polygon points="0,0 100,0 85,15 15,15" name="top" />
+        <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+        <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+        <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+        <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+        <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+        <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+      </svg>
+    </div>
+  </div>
+  <div class="digit-group">
+    <div class="digit-container">
+      <svg width="100" height="200" id="digit-5">
+        <polygon points="0,0 100,0 85,15 15,15" name="top" />
+        <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+        <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+        <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+        <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+        <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+        <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+      </svg>
+    </div>
+    <div class="digit-container">
+      <svg width="100" height="200" id="digit-6">
+        <polygon points="0,0 100,0 85,15 15,15" name="top" />
+        <polygon points="0,0 0,100 15,85 15,15" name="top-left" />
+        <polygon points="100,0 100,100 85,85 85,15" name="top-right" />
+        <polygon points="0,100 15,85 85,85 100,100 85,115 15,115" name="middle" />
+        <polygon points="0,100 0,200 15,185 15,115" name="bottom-left" />
+        <polygon points="100,200 100,100 85,115 85,185" name="bottom-right" />
+        <polygon points="0,200 100,200 85,185 15,185" name="bottom" />
+      </svg>
+    </div>
+    </div>
+  </div>
+</body>
+<script>
+  const digitOne = document.querySelector('#digit-1');
+  const digitTwo = document.querySelector('#digit-2');
+  const digitThree = document.querySelector('#digit-3');
+  const digitFour = document.querySelector('#digit-4');
+  const digitFive = document.querySelector('#digit-5');
+  const digitSix = document.querySelector('#digit-6');
+  const fillColor = 'rgba(0, 255, 100, 1)';
+
+  const numberMap = {
+    1: {
+    top: false,
+    topLeft: false,
+    topRight: true,
+    middle: false,
+    bottomLeft: false,
+    bottomRight: true,
+    bottom: false,
+    },
+    2: {
+      top: true,
+      topLeft: false,
+      topRight: true,
+      middle: true,
+      bottomLeft: true,
+      bottomRight: false,
+      bottom: true,
+    },
+    3: {
+      top: true,
+      topLeft: false,
+      topRight: true,
+      middle: true,
+      bottomLeft: false,
+      bottomRight: true,
+      bottom: true,
+    },
+    4: {
+      top: false,
+      topLeft: true,
+      topRight: true,
+      middle: true,
+      bottomLeft: false,
+      bottomRight: true,
+      bottom: false,
+    },
+    5: {
+      top: true,
+      topLeft: true,
+      topRight: false,
+      middle: true,
+      bottomLeft: false,
+      bottomRight: true,
+      bottom: true,
+    },
+    6: {
+      top: true,
+      topLeft: true,
+      topRight: false,
+      middle: true,
+      bottomLeft: true,
+      bottomRight: true,
+      bottom: true,
+    },
+    7: {
+      top: true,
+      topLeft: false,
+      topRight: true,
+      middle: false,
+      bottomLeft: false,
+      bottomRight: true,
+      bottom: false,
+    },
+    8: {
+      top: true,
+      topLeft: true,
+      topRight: true,
+      middle: true,
+      bottomLeft: true,
+      bottomRight: true,
+      bottom: true,
+    },
+    9: {
+      top: true,
+      topLeft: true,
+      topRight: true,
+      middle: true,
+      bottomLeft: false,
+      bottomRight: true,
+      bottom: false,
+    },
+    0: {
+      top: true,
+      topLeft: true,
+      topRight: true,
+      middle: false,
+      bottomLeft: true,
+      bottomRight: true,
+      bottom: true,
+    },
+  }
+  function getPolygons(container) {
+    return {
+      top: container.querySelector('polygon[name="top"]'),
+      topLeft: container.querySelector('polygon[name="top-left"]'),
+      topRight: container.querySelector('polygon[name="top-right"]'),
+      middle: container.querySelector('polygon[name="middle"]'),
+      bottomLeft: container.querySelector('polygon[name="bottom-left"]'),
+      bottomRight: container.querySelector('polygon[name="bottom-right"]'),
+      bottom: container.querySelector('polygon[name="bottom"]'),
+    }
+  }
+  function setDigit(number, digit) {
+    const polygons = getPolygons(digit);
+    const configuration = numberMap[number];
+    for (const polygon in polygons) {
+      const fill = configuration[polygon] ? fillColor : 'transparent';
+      polygons[polygon].style.fill = fill;
+    }
+  }
+
+  function updateTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    let secondHours = hours % 10;
+    let firstHours = Math.floor(hours / 10);
+    let secondMinutes = minutes % 10;
+    let firstMinutes = Math.floor(minutes / 10);
+    let secondSeconds = seconds % 10;
+    let firstSeconds = Math.floor(seconds / 10);
+
+    setDigit(firstSeconds, digitFive);
+    setDigit(secondSeconds, digitSix);
+    setDigit(firstMinutes, digitThree);
+    setDigit(secondMinutes, digitFour);
+    setDigit(firstHours, digitOne);
+    setDigit(secondHours, digitTwo);
+  }
+
+  setInterval(updateTime, 300);
+  updateTime();
+</script>
+</html>
+
